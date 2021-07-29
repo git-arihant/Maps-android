@@ -1,5 +1,6 @@
 package com.example.maps
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -40,9 +41,12 @@ class Decathlon : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val decath = LatLng(30.619681088872856, 76.82430238226392)
-        mMap.addMarker(MarkerOptions().position(decath).title("Marker in Decathlon"))
+        var i: Intent=getIntent()
+        val lat=i.getDoubleExtra("latitude",0.00)
+        val lng=i.getDoubleExtra("longitude",0.00)
+        val decath = LatLng(lat, lng)
+        mMap.addMarker(MarkerOptions().position(decath).title("Marker placed"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(decath,15f))
     }
 }
+

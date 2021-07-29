@@ -11,14 +11,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val mon: Button = findViewById(R.id.button)
-        mon.setOnClickListener {
-            runhere1()
-        }
-    }
+        val decath: Button = findViewById(R.id.button)
+        decath.setOnClickListener {
+            val i = Intent(this, Decathlon::class.java)
 
-    private fun runhere1() {
-        val intent = Intent(this, Decathlon::class.java)
-        startActivity(intent)
+            val lat : Double=30.619681088872856
+            val lng : Double=76.82430238226392
+            i.putExtra("latitude",lat)
+            i.putExtra("longitude",lng)
+            startActivity(i)
+        }
+
+        val dmart: Button = findViewById(R.id.button3)
+        dmart.setOnClickListener {
+            val i = Intent(this, Decathlon::class.java)
+
+            val lat : Double=30.620428524720115
+            val lng : Double=76.8219193822639
+            i.putExtra("latitude",lat)
+            i.putExtra("longitude",lng)
+            startActivity(i)
+        }
     }
 }
