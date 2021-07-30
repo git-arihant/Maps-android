@@ -44,8 +44,9 @@ class Decathlon : AppCompatActivity(), OnMapReadyCallback {
         var i: Intent=getIntent()
         val lat=i.getDoubleExtra("latitude",0.00)
         val lng=i.getDoubleExtra("longitude",0.00)
+        val str=i.getStringExtra("place")
         val decath = LatLng(lat, lng)
-        mMap.addMarker(MarkerOptions().position(decath).title("Marker placed"))
+        mMap.addMarker(MarkerOptions().position(decath).title(str))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(decath,15f))
     }
 }
